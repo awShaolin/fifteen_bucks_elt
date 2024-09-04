@@ -21,7 +21,7 @@ with DAG(
     default_args=default_args,
     description='This dag make API request and load data to raw.cannabis table',
     tags=['ELT'],
-    schedule_interval=None,
+    schedule_interval='0 0,12 * * *',
     catchup=False,
     max_active_runs=1
 ) as dag:
