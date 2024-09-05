@@ -54,5 +54,5 @@ docker logs <containerID>
 |---------|--------------------|----------|
 | wait_for_cannabis_api | t1 | `HttpSensor` для проверки доступности API |
 | fetch_data | t2 | `PythonOperator`, который вызывает функцию `fetch_data` из файла `dags/scripts/fifteen_bucks_elt.py`. Функция делает GET запрос к API и возвращает json с данными|
-| parse_data_to_df | t3 | `PythonOperator` который вызывает функцию `fetch_data` из файла `dags/scripts/fifteen_bucks_elt.py`. Cоставляет из json - pandas DataFrame |
-| insert_data_into_dwh | t4 | `PythonOperator`, который вызывает функцию `fetch_data` из файла `dags/scripts/fifteen_bucks_elt.py`. Отфильтровывает DataFrame, оставляя только id, которых нет в бд и вставляет данные в таблицу при помощи `sqlalchemy`
+| parse_data_to_df | t3 | `PythonOperator` который вызывает функцию `parse_data_to_dataframe` из файла `dags/scripts/fifteen_bucks_elt.py`. Cоставляет из json - pandas DataFrame |
+| insert_data_into_dwh | t4 | `PythonOperator`, который вызывает функцию `insert_data_into_dwh` из файла `dags/scripts/fifteen_bucks_elt.py`. Отфильтровывает DataFrame, оставляя только id, которых нет в бд и вставляет данные в таблицу при помощи `sqlalchemy`
